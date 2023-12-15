@@ -10,6 +10,23 @@ namespace DL.Entities
 {
     public class LocationEntity
     {
+        public LocationEntity(int postalCode, string commune, string? streetName, string? houseNumber)
+        {
+            PostalCode = postalCode;
+            Commune = commune;
+            StreetName = streetName;
+            HouseNumber = houseNumber;
+        }
+
+        public LocationEntity(int id, int postalCode, string commune, string? streetName, string? houseNumber)
+        {
+            Id = id;
+            PostalCode = postalCode;
+            Commune = commune;
+            StreetName = streetName;
+            HouseNumber = houseNumber;
+        }
+
         public int Id { get; set; }
         [Required]
         public int PostalCode { get; set; }

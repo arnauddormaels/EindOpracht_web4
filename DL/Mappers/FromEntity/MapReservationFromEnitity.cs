@@ -11,14 +11,16 @@ namespace DL.Mappers.FromEntity
     public class MapReservationFromEnitity
     {
         public MapClientFromEntity clientMapper = new MapClientFromEntity();
-        public MapRestaurantFromEntity reservationMapper = new MapRestaurantFromEntity(); 
+        public MapRestaurantFromEntity restaurantMapper = new MapRestaurantFromEntity(); 
+        public MapTableFromEntity tableMapper = new MapTableFromEntity();
 
         public Reservation ReservationFromEntity(ReservationEntity entity)
         {
-            Client client = clientMapper.ClientFromEntity(entity.Client);
-            reservationMapper.RestaurantFromEntity(entity.Restaurant);
+            Client client = clientMapper.ToClientFromEntity(entity.Client);
+            Table table = tableMapper.ToTableFromEntity(entity.Table);
+            Restaurant restaurant = restaurantMapper.ToRestaurantFromEntity(entity.Restaurant);
 
-            return new Reservation()
+            return new Reservation(entity.NrOfPlaces, entity.Date, entity.Time, table, restaurant, client);
         }
 
     }

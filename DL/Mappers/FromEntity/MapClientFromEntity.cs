@@ -13,10 +13,10 @@ namespace DL.Mappers.FromEntity
         public MapContactInfoFromEntity contactInfoMapper = new MapContactInfoFromEntity();
         public MapLocationFromEntity locationMapper = new MapLocationFromEntity();
 
-        public Client ClientFromEntity(ClientEntity clientEntity)
+        public Client ToClientFromEntity(ClientEntity clientEntity)
         {
-            ContactInfo contactInfo = contactInfoMapper.ContactInfoFromEntity(clientEntity.ContactInfo);
-            Location location = locationMapper.LocationFromEntity(clientEntity.Location);
+            ContactInfo contactInfo = contactInfoMapper.ToContactInfoFromEntity(clientEntity.ContactInfo);
+            Location location = locationMapper.ToLocationFromEntity(clientEntity.Location);
             return new Client(clientEntity.Id, clientEntity.Name, contactInfo, location);
         }
  

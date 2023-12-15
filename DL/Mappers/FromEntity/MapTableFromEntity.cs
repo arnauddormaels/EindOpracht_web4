@@ -11,11 +11,11 @@ namespace DL.Mappers.FromEntity
 {
     public class MapTableFromEntity
     {
-        public Table TableFromEntity(TableEntity entity)
+        public Table ToTableFromEntity(TableEntity entity)
         {
             return new Table(entity.Id, entity.TableNumber, entity.NrOfPlaces);
         }
-        public List<Table> TablesFromEntity(List<TableEntity> entitiesList)
+        public List<Table> ToTablesFromEntity(List<TableEntity> entitiesList)
         {
             if (entitiesList == null || entitiesList.Count == 0)
             {
@@ -25,7 +25,7 @@ namespace DL.Mappers.FromEntity
                 List<Table> tables = new List<Table>();
                 foreach(TableEntity entity in entitiesList)
                 {
-                    tables.Add(TableFromEntity(entity));
+                    tables.Add(ToTableFromEntity(entity));
                 }
 
                 return tables;

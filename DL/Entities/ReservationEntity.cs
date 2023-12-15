@@ -8,6 +8,17 @@ namespace DL.Entities
 {
     public class ReservationEntity
     {
+        public ReservationEntity(int id, int nrOfPlaces, DateOnly date, TimeOnly time, int tableId, int restaurantId, int contactPersonId)
+        {
+            Id = id;
+            NrOfPlaces = nrOfPlaces;
+            Date = date;
+            Time = time;
+            TableId = tableId;
+            RestaurantId = restaurantId;
+            ContactPersonId = contactPersonId;
+        }
+
         public int Id { get; set; }
         public int NrOfPlaces { get; set; }
         public DateOnly Date { get; set; }

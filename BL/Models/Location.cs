@@ -14,10 +14,10 @@ namespace BL.Models
         private string _commune;
         
         //optional
-        private string _streetName;       //string? van maken of niet??
+        private string? _streetName;       //string? van maken of niet??
         //bevat ook bussnummer
         //optional
-        private string? HouseNumber;
+        private string? _houseNumber;
 
         public Location(int id, int postalCode, string commune,string? streetName, string? houseNumber)
         {
@@ -41,6 +41,6 @@ namespace BL.Models
         public int PostalCode { get => _postalCode; set => _postalCode = value; }
         public string Commune { get => _commune; set => _commune = value; }
         public string? StreetName { get => _streetName; set => _streetName = value; }
-        public string? HouseNumber1 { get => HouseNumber; set => HouseNumber = value; }
+        public string? HouseNumber { get => _houseNumber; set => _houseNumber = value; }
     }
 }

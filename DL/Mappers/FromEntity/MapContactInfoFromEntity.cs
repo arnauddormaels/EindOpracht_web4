@@ -11,7 +11,7 @@ namespace DL.Mappers.FromEntity
     public class MapContactInfoFromEntity
     {
 
-        public ContactInfo ContactInfoFromEntity(ContactInfoEntity entity)
+        public ContactInfo ToContactInfoFromEntity(ContactInfoEntity entity)
         {
             return new ContactInfo(entity.Id, entity.Email, entity.phonenumber);
         }

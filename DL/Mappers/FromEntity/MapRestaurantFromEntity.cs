@@ -14,12 +14,12 @@ namespace DL.Mappers.FromEntity
         public MapTableFromEntity tableMapper = new MapTableFromEntity();
         public MapContactInfoFromEntity contactInfoMapper = new MapContactInfoFromEntity();
         public MapLocationFromEntity locationMapper = new MapLocationFromEntity();
-        public Restaurant RestaurantFromEntity(RestaurantEntity entity)
+        public Restaurant ToRestaurantFromEntity(RestaurantEntity entity)
         {
-            List<Table> tables = tableMapper.TablesFromEntity(entity.Tables());
-            ContactInfo contactInfo = contactInfoMapper.ContactInfoFromEntity(clientEntity.ContactInfo);
-            Location location = locationMapper.LocationFromEntity(clientEntity.Location);
-            return Restaurant(entity.Id, entity.Name, entity.Keuken, location, ContactInfo, tables);
+            List<Table> tables = tableMapper.ToTablesFromEntity(entity.Tables);
+            ContactInfo contactInfo = contactInfoMapper.ToContactInfoFromEntity(entity.ContactInfo);
+            Location location = locationMapper.ToLocationFromEntity(entity.Location);
+            return new Restaurant(entity.Id, entity.Name, entity.Keuken, location, contactInfo, tables);
         }
    }
 }

@@ -16,19 +16,20 @@ namespace BL.Models
         public Client(int id, string name, ContactInfo contactInfo, Location location)
         {
             Id = id;
-            _name = name;
-            _contactInfo = contactInfo;
-            _location = location;
+            Name = name;
+            ContactInfo = contactInfo;
+            Location = location;
         }
         public Client(string name, ContactInfo contactInfo, Location location)
         {
-            _name = name;
-            _contactInfo = contactInfo;
-            _location = location;
+            Name = name;
+            ContactInfo = contactInfo;
+            Location = location;
         }
 
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
          public Location Location { get => _location; set => _location = value; }
+        public ContactInfo ContactInfo { get => _contactInfo; set => _contactInfo = value; }
     }
 }
