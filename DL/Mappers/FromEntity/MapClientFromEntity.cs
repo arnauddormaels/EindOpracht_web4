@@ -19,7 +19,15 @@ namespace DL.Mappers.FromEntity
             Location location = locationMapper.ToLocationFromEntity(clientEntity.Location);
             return new Client(clientEntity.Id, clientEntity.Name, contactInfo, location);
         }
- 
+        
+        public List<Client> ToClientFromEntityList(List<ClientEntity> entities) {
+            List<Client> clients = new List<Client>();
+            foreach (ClientEntity entity in entities)
+            {
+                clients.Add(ToClientFromEntity(entity));
+            }
+            return clients;
+        }
 
     }
 }

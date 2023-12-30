@@ -8,6 +8,12 @@ namespace DL.Entities
 {
     public class TableEntity
     {
+        public TableEntity(int tableNumber, int nrOfPlaces)
+        {
+            TableNumber = tableNumber;
+            NrOfPlaces = nrOfPlaces;
+        }
+
         public TableEntity(int tableNumber, int nrOfPlaces, int restaurantId)
         {
             TableNumber = tableNumber;

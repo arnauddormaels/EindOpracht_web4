@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BL.DTO_s
 {
-    public class ReservationInputDTO
+    public class ReservationWithIdsDTO
     {
-        public ReservationInputDTO(int nrOfPlaces, DateOnly date, TimeOnly time, int restaurantId, int clientId)
+        public ReservationWithIdsDTO(int nrOfPlaces, DateOnly date, TimeOnly time, int restaurantId, int clientId)
         {
             NrOfPlaces = nrOfPlaces;
             Date = date;

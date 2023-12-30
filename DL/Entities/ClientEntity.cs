@@ -9,6 +9,11 @@ namespace DL.Entities
 {
     public class ClientEntity
     {
+        public ClientEntity(string name)
+        {
+            Name = name;
+        }
+
         //input
         public ClientEntity(string name, ContactInfoEntity contactInfo, LocationEntity location)
         {
@@ -27,7 +32,7 @@ namespace DL.Entities
 
         public int Id { get; set; }
         public string Name { get; set; }
-
+        public bool Status { get; set; } = true;
         //Foreign Keys
 
         //one-to-one relationships by default required

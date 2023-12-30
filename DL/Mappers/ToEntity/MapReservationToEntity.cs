@@ -18,7 +18,9 @@ namespace DL.Mappers.ToEntity
         {
             //ClientEntity clientEntity = clientMapper.ToClientEntity(reservation.ContactPerson);
             //RestaurantEntity restaurantEntity = restaurantMapper.ToRestaurantEntity(reservation.Restaurant);
-            return new ReservationEntity(reservation.Id, reservation.NrOfPlaces, reservation.Date, reservation.Time, reservation.Table.Id, reservation.Restaurant.Id, reservation.ContactPerson.Id);
+             DateTime combinedDateTime = reservation.Date.ToDateTime(reservation.Time);
+
+            return new ReservationEntity(reservation.Id, reservation.NrOfPlaces,combinedDateTime , reservation.Table.Id, reservation.Restaurant.Id, reservation.ContactPerson.Id);
 
         }
 

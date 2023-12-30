@@ -21,5 +21,18 @@ namespace DL.Mappers.FromEntity
             Location location = locationMapper.ToLocationFromEntity(entity.Location);
             return new Restaurant(entity.Id, entity.Name, entity.Keuken, location, contactInfo, tables);
         }
-   }
+
+        public List<Restaurant> ToRestaurantFromEntityList(List<RestaurantEntity> restaurantEntities)
+        {
+            List<Restaurant> restaurants = new List<Restaurant>();
+            if(restaurantEntities != null)
+            {
+                foreach(RestaurantEntity entity in restaurantEntities)
+                {
+                    restaurants.Add(ToRestaurantFromEntity(entity));
+                }
+            }
+            return restaurants;
+        }
+    }
 }

@@ -8,6 +8,13 @@ namespace DL.Entities
 {
     public class RestaurantEntity
     {
+        public RestaurantEntity(int id, string name, string keuken)
+        {
+            Id = id;
+            Name = name;
+            Keuken = keuken;
+        }
+
         public RestaurantEntity(string name, string keuken, ContactInfoEntity contactInfo, LocationEntity location)
         {
 
@@ -17,7 +24,7 @@ namespace DL.Entities
             Location = location;
         }
 
-        public RestaurantEntity(int id, string name, string keuken, LocationEntity location, ContactInfoEntity contactInfo, List<TableEntity>? tables)
+       public RestaurantEntity(int id, string name, string keuken, LocationEntity location, ContactInfoEntity contactInfo, List<TableEntity> tables)
         {
             Id = id;
             Name = name;
@@ -30,6 +37,7 @@ namespace DL.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Keuken { get; set; }
+        public bool Status { get; set; } = true;
 
         //Foreign key
         public int ContactInfoId { get; set; }
@@ -40,5 +48,6 @@ namespace DL.Entities
         //by default optional 
         //Kan null zijn 
         public List<TableEntity>? Tables { get; set; }
+        public List<ReservationEntity>? Reservations { get; set; }
     }
 }

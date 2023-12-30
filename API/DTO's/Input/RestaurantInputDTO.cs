@@ -2,10 +2,10 @@
 {
     public class RestaurantInputDTO
     {
-        public string Name;
-        public string Keuken;
-        public LocationInputDTO Location;
-        public ContactInfoInputDTO ContactInfo;
+        public string Name { get; set; }
+        public string Keuken { get; set; }
+        public LocationInputDTO Location { get; set; }
+        public ContactInfoInputDTO ContactInfo { get; set; }
 
         public RestaurantInputDTO(string name, string keuken, LocationInputDTO location, ContactInfoInputDTO contactInfo)
         {

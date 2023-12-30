@@ -19,5 +19,18 @@ namespace API.Mappers.output
             }
             return new RestaurantOutputDTO(restaurant.Id, restaurant.Name, restaurant.Keuken, location, contactInfo, table);
         }
+
+        public List<RestaurantOutputDTO> MapToRestaurantDTOList(List<Restaurant> restaurants)
+        {
+            List<RestaurantOutputDTO> resturantDTOs = new List<RestaurantOutputDTO>();
+            if (restaurants != null)
+            {
+                foreach (Restaurant restuarant in restaurants)
+                {
+                    resturantDTOs.Add(MapToRestaurantDTO(restuarant));
+                }
+            }
+            return resturantDTOs;
+        }
     }
 }

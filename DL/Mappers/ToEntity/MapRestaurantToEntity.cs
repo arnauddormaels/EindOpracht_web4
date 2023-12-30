@@ -1,5 +1,6 @@
 ﻿using BL.Models;
 using DL.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,18 @@ namespace DL.Mappers.ToEntity
         {
             ContactInfoEntity contactInfo = contactInfoMapper.ToContactInfoEntity(restaurant.ContactInfo);
             LocationEntity location = locationMapper.ToLocationEntity(restaurant.Location);
+            if(restaurant.Tables != null &&restaurant.Tables.Count > 0)
+            {
+                List<TableEntity> tables = new List<TableEntity>();
+
+                foreach(Table table in restaurant.Tables)
+                {
+                    tables.Add(tableMapper.ToTableEntity(restaurant.Id,table));
+                }
+
+                return new RestaurantEntity(restaurant.Id,restaurant.Name, restaurant.Keuken, location, contactInfo,tables);
+
+            }
             return new RestaurantEntity(restaurant.Name,  restaurant.Keuken,contactInfo, location);
                 }
     }

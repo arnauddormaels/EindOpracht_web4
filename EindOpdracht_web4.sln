@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{6C5F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DL", "DL\DL.csproj", "{975E89EE-A6C3-472A-BCF3-D242B1BB693A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartUp", "StartUp\StartUp.csproj", "{C73810B0-91D3-4CB3-A54A-DD74A5AD0BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartUp", "StartUp\StartUp.csproj", "{C73810B0-91D3-4CB3-A54A-DD74A5AD0BAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareExceptionsAndLogging", "ExceptionLibrary\MiddlewareExceptionsAndLogging.csproj", "{188C09A7-BC1B-43B9-9D56-53C9D5E7E780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWPF", "ClientWPF\ClientWPF.csproj", "{218EB8BC-9BB4-4E1D-AC2C-C68D9538559E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C73810B0-91D3-4CB3-A54A-DD74A5AD0BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C73810B0-91D3-4CB3-A54A-DD74A5AD0BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C73810B0-91D3-4CB3-A54A-DD74A5AD0BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{188C09A7-BC1B-43B9-9D56-53C9D5E7E780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188C09A7-BC1B-43B9-9D56-53C9D5E7E780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188C09A7-BC1B-43B9-9D56-53C9D5E7E780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188C09A7-BC1B-43B9-9D56-53C9D5E7E780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218EB8BC-9BB4-4E1D-AC2C-C68D9538559E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218EB8BC-9BB4-4E1D-AC2C-C68D9538559E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218EB8BC-9BB4-4E1D-AC2C-C68D9538559E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218EB8BC-9BB4-4E1D-AC2C-C68D9538559E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 {
     public class ReservationOutputDTO
     {
-        public ReservationOutputDTO(int id, int nrOfPlaces, DateOnly date, TimeOnly time, RestaurantOutputDTO restaurant, ClientOutputDTO client, TableOutputDTO table)
+        public ReservationOutputDTO(int id, int nrOfPlaces, string date, string time, RestaurantOutputDTO restaurant, ClientOutputDTO client, TableOutputDTO table)
         {
             Id = id;
             NrOfPlaces = nrOfPlaces;
@@ -15,8 +15,8 @@
 
         public int Id { get; set; }
         public int NrOfPlaces { get; set; }
-        public DateOnly Date { get; set; }
-        public TimeOnly Time { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
         public RestaurantOutputDTO Restaurant { get; set; }
         public ClientOutputDTO Client { get; set; }
         public TableOutputDTO Table { get; set; }

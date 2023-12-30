@@ -8,11 +8,11 @@ namespace API.DTO_s.Input
         public ContactInfoInputDTO ContactInfoDTO { get; set; }
         public LocationInputDTO LocationDTO { get; set; }
 
-        public ClientInputDTO(string name, ContactInfoInputDTO contactInfo, LocationInputDTO location)
+        public ClientInputDTO(string name, ContactInfoInputDTO contactInfoDTO, LocationInputDTO locationDTO)
         {
             Name = name;
-            ContactInfoDTO = contactInfo;
-            LocationDTO = location;
+            ContactInfoDTO = contactInfoDTO;
+            LocationDTO = locationDTO;
         }
         
     }

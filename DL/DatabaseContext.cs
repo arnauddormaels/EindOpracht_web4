@@ -14,12 +14,12 @@ namespace DL
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["ConnectionEF"].ConnectionString;
 
-        public DbSet<ClientEntity> Client { get; set; }
-        public DbSet<ContactInfoEntity> ContactInfo { get; set; }
-        public DbSet<LocationEntity> Location{ get; set; }
-        public DbSet<ReservationEntity> Reservation{ get; set; }
-        public DbSet<ReservationEntity> Restaurant{ get; set; }
-        public DbSet<TableEntity> Table { get; set; }
+        public DbSet<ClientEntity> Clients { get; set; }
+        public DbSet<ContactInfoEntity> ContactInfos { get; set; }
+        public DbSet<LocationEntity> Locations { get; set; }
+        public DbSet<ReservationEntity> Reservations { get; set; }
+        public DbSet<RestaurantEntity> Restaurants { get; set; }
+        public DbSet<TableEntity> Tables { get; set; }
 
 
 
@@ -28,10 +28,51 @@ namespace DL
             optionsBuilder.UseSqlServer(_connectionString)
     .LogTo(Console.WriteLine, LogLevel.Information);
 
+
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ClientEntity>().HasOne(c => c.ContactInfo)
+                .WithOne().IsRequired()
+                .HasConstraintName("FK_ContactInfo_Client");
+
+            modelBuilder.Entity<ClientEntity>().HasOne(c => c.Location)
+                .WithOne().IsRequired()
+                .HasConstraintName("FK_Location_Client");
+
+            modelBuilder.Entity<RestaurantEntity>().HasOne(c => c.ContactInfo)
+              .WithOne().IsRequired()
+              .HasConstraintName("FK_ContactInfo_Restuarant");
+
+            modelBuilder.Entity<RestaurantEntity>().HasOne(r => r.Location)
+                .WithOne().IsRequired()
+                .HasConstraintName("FK_Location_Restaurant");
+
+            modelBuilder.Entity<RestaurantEntity>().HasMany(r => r.Tables)
+                .WithOne().IsRequired()
+                .HasForeignKey(t => t.RestaurantId)
+                .HasConstraintName("FK_Restaruants");
+            modelBuilder.Entity<RestaurantEntity>().HasMany(r => r.Reservations)
+                .WithOne().IsRequired()
+                .HasForeignKey(res => res.RestaurantId)
+                .HasConstraintName("FK_Restaurants_Reservations")
+                ;
+
+                    modelBuilder.Entity<ReservationEntity>()
+            .HasOne(r => r.Restaurant)
+            .WithMany(r => r.Reservations)
+            .HasForeignKey(r => r.RestaurantId).OnDelete(DeleteBehavior.NoAction); 
+
+              //modelBuilder.Entity<ReservationEntity>().HasOne(r => r.Restaurant)
+              //   .WithOne().IsRequired().OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<ReservationEntity>().HasOne(r => r.Table)
+              .WithOne().IsRequired().OnDelete(DeleteBehavior.NoAction);
         }
 
         //TODO
-        Foreign Keys moeten nog overal gelinkt worden.
+        //Foreign Keys moeten nog overal gelinkt worden.
 
 
 
